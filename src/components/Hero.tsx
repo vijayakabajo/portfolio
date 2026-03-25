@@ -8,7 +8,7 @@ import { AvatarVideo } from './AvatarVideo';
 import { Magnetic } from './Magnetic';
 
 const ScrambleText = () => {
-  const phrases = ['Backend Developer', 'Frontend Developer', 'Full Stack Developer'];
+  const phrases = ['Full Stack Developer', 'Backend Developer', 'Frontend Developer'];
   const chars = '!<>-_\\/[]{}—=+*^?#';
   const [text, setText] = useState(phrases[0]);
 

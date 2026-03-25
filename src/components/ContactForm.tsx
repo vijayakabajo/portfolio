@@ -75,7 +75,7 @@ export const ContactForm = () => {
                         ? "border-red-500 placeholder:text-red-400"
                         : "border-black/10 dark:border-white/10 placeholder:text-black/40 dark:placeholder:text-white/40 outline-none"
                     }`}
-            placeholder={errors.name ? errors.name.message : "John Doe"}
+            placeholder={errors.name ? errors.name.message : "Your Name"}
           />
         </div>
 
@@ -101,7 +101,7 @@ export const ContactForm = () => {
                             : "border-black/10 dark:border-white/10 placeholder:text-black/40 dark:placeholder:text-white/40 outline-none"
                         }`}
             placeholder={
-              errors.email ? errors.email.message : "john@example.com"
+              errors.email ? errors.email.message : "Your Email"
             }
           />
         </div>
