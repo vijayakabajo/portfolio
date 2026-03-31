@@ -7,14 +7,14 @@ const experiences = [
     company: "Sabhyasha Retail Tech",
     role: "Software Engineer II",
     date: "Present",
-    location: "Ranchi, India",
+    location: "Bhubaneswar, India (Remote)",
     description: "Design and develop scalable backend APIs and data pipelines for the Artisans' Wizard Seller App and Near Delight (XORA), implementing caching strategies, asynchronous services, and optimized database queries for high-performance backend systems",
   },
   {
     company: "Sparrow Softech Pvt LTD",
     role: "Django Developer",
     date: "September 2024 – September 2025",
-    location: "Ranchi, India",
+    location: "Ranchi, India (Onsite)",
     description: "Developed and maintained the official municipal websites for Rajasthan, Sujangarh, and Churu using Django and PostgreSQL. Managed large, complex taxation-related datasets and built secure backend systems for government operations and citizen services.",
   },
   {
