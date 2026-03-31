@@ -68,7 +68,7 @@ export const Navbar: React.FC = () => {
 
       {/* Nav Links */}
       <div className="hidden md:flex gap-6 lg:gap-8 min-[2000px]:gap-[3vw] items-center">
-        {["Home", "About", "Work", "Contact"].map((item) => (
+        {["Home", "About", "Experience", "Work", "Contact"].map((item) => (
           <Magnetic key={item}>
             <a
               href={item === "Home" ? "/#" : `/#${item.toLowerCase()}`}

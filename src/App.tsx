@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { Experience } from './components/Experience';
 import { Work } from './components/Work';
 import { Footer } from './components/Footer';
 import { ThemeProvider } from './ThemeContext';
@@ -49,6 +50,7 @@ export default function App() {
               <>
                 <Hero />
                 <Bento />
+                <Experience />
                 <Work />
               </>
             } />

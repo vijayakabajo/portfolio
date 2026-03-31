@@ -5,30 +5,39 @@ import { GoArrowUpRight } from "react-icons/go";
 
 const projects = [
   {
-    title: "Obys Agency",
-    category: "UI Clone",
-    year: "2023",
-    video: "./obys.mp4",
-    description: "A creative agency website clone featuring advanced animations, smooth scrolling, and interactive elements. The project recreates a modern design-focused website using HTML, CSS, JavaScript, and animation libraries like GSAP for a highly engaging user experience.",
-    link: "https://banditadas.github.io/Obys-Agency/",
+    title: "NDL Scraper",
+    category: "Python, Playwright, Django REST, GCP",
+    year: "2024",
+    video: "",
+    description: "Independently designed and built an asynchronous Python restaurant data scraper achieving ~98% extraction accuracy and reducing Near Delight seller onboarding time from 1 hour to under 1 minute via automated data migration.",
+    link: "https://datafetch-api.neardelight.com/",
   },
   {
-    title: "Exo-Ape",
-    category: "UI Clone",
-    year: "2023",
-    video: "./exoape.mp4",
+    title: "Near Delight",
+    category: "Python, Django REST, MySQL, GCP",
+    year: "2024",
+    video: "",
     description:
-      "A visually rich website inspired by modern creative agency designs. It showcases bold typography, smooth scrolling interactions, and immersive animations to create a dynamic and engaging frontend experience.",
-    link: "https://exo-ape-j778.vercel.app/",
+      "Developed backend APIs for an ONDC-based food delivery platform, building account/admin/product services, real-time notifications (Django Channels/WebSockets), and async email/SMS systems with caching, transactions, and Redis locks to prevent cache stampede.",
+    link: "https://www.neardelight.com/",
   },
   {
-    title: "Work",
-    category: "UI Clone",
-    year: "2023",
-    video: "./work.mp4",
+    title: "Artisans' Wizard",
+    category: "Python, Django REST, MySQL, GCP",
+    year: "2024",
+    video: "",
     description:
-      "A modern web experience built with smooth animations and interactive UI elements. The project focuses on creating an engaging user interface with fluid transitions, responsive design, and visually appealing layouts to deliver a polished browsing experience.",
-    link: "https://work-ruby-three.vercel.app/",
+      "Developed backend services for ONDC-based ecommerce platform using Django REST Framework and MySQL, built chatbot integrations, a centralized admin export system, and key backend features across accounts, admin, and product modules",
+    link: "https://www.artisanswizard.com/",
+  },
+  {
+    title: "Municipal Tax Platforms",
+    category: "Django, PostgreSQL",
+    year: "2024",
+    video: "",
+    description:
+      "Maintained and improved a legacy multi-ULB tax platform by debugging production issues, optimizing large SQL queries, adding new features, and supporting secure deployments and documentation for auditing and government compliance.",
+    link: "https://www.sujangarhmunicipal.com/",
   },
 ];
 
@@ -56,8 +65,8 @@ export const Work: React.FC = () => {
     >
       <div className="max-w-5xl min-[2000px]:max-w-[70vw] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 min-[2000px]:gap-[3vw] mb-12 md:mb-16 min-[2000px]:mb-[8vh]">
-          <h2 className="text-[12vw] md:text-[8vw] lg:text-6xl min-[2000px]:text-[5vw] font-medium flex overflow-hidden">
-            {"Recent Work".split("").map((char, index) => (
+          <h2 className="text-[12vw] md:text-[8vw] lg:text-6xl min-[2000px]:text-[5vw] font-medium flex uppercase">
+            {"Projects".split("").map((char, index) => (
               <motion.span
                 key={index}
                 initial={{ y: "100%" }}
@@ -75,7 +84,7 @@ export const Work: React.FC = () => {
           </h2>
         </div>
 
-        <div className="border-t border-black/10 dark:border-white/10">
+        <div className="border-t-[1.5px] border-black dark:border-white">
           {projects.map((project, index) => (
             <div
               key={project.title}
@@ -86,14 +95,17 @@ export const Work: React.FC = () => {
                 setIsHoveringContent(false);
               }}
             >
-              <div className="flex items-center gap-8 min-[2000px]:gap-[4vw] z-10 w-full md:w-auto">
+              <div className="flex flex-col gap-2 min-[2000px]:gap-[1vw] z-10 w-full md:w-auto">
                 <h3
-                  className="text-[8vw] md:text-[5vw] lg:text-4xl min-[2000px]:text-[3vw] font-medium transition-all duration-500 group-hover:opacity-40 md:group-hover:translate-x-4"
+                  className="text-[6vw] md:text-[3vw] lg:text-2xl min-[2000px]:text-[2vw] font-medium transition-all duration-500 group-hover:opacity-40 md:group-hover:translate-x-4 max-w-xl"
                   onMouseEnter={() => setIsHoveringContent(true)}
                   onMouseLeave={() => setIsHoveringContent(false)}
                 >
                   {project.title}
                 </h3>
+                <span className="text-sm md:text-base opacity-60 transition-all duration-500 md:group-hover:translate-x-4">
+                  {project.category}
+                </span>
               </div>
 
               <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-16 min-[2000px]:gap-[6vw] z-10 mt-4 md:mt-0 min-[2000px]:mt-[2vh]">
@@ -158,7 +170,7 @@ export const Work: React.FC = () => {
         <div className="mt-16 min-[2000px]:mt-[8vh] flex justify-center">
           <Magnetic>
             <button className="flex items-center gap-2 min-[2000px]:gap-[1vw] px-8 py-4 min-[2000px]:px-[4vw] min-[2000px]:py-[2vh] rounded-full border border-black/20 dark:border-white/20 text-[4vw] md:text-[2.5vw] lg:text-base min-[2000px]:text-[1.2vw] font-medium hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-500 group/btn">
-              <span>More Work</span>
+              <span>More Projects</span>
               <GoArrowUpRight className="w-[4.5vw] h-[4.5vw] md:w-[3vw] md:h-[3vw] lg:w-4 lg:h-4 min-[2000px]:w-[1.2vw] min-[2000px]:h-[1.2vw] transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
             </button>
           </Magnetic>
