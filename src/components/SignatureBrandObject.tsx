@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Float, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
@@ -15,6 +15,17 @@ export const SignatureBrandObject = () => {
   const { scene } = useGLTF('/models/eyes2.glb');
 
   const targetRotation = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const box = new THREE.Box3().setFromObject(scene);
+    const center = box.getCenter(new THREE.Vector3());
+
+    scene.position.sub(center); // move model so center = (0,0,0)
+  }, [scene]);
+
+  const amplify = (value: number, factor: number) => {
+    return Math.sign(value) * Math.pow(Math.abs(value), 0.7) * factor;
+  };
 
   useFrame((state) => {
     if (hasCamera) {

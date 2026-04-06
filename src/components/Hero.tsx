@@ -9,7 +9,7 @@ import { SceneWrapper } from './SceneWrapper';
 import { SignatureBrandObject } from './SignatureBrandObject';
 
 const ScrambleText = () => {
-  const phrases = ['Full Stack Developer', 'Backend Developer', 'Frontend Developer'];
+  const phrases = ['Full Stack Development', 'Backend Development', 'Frontend Development', 'Web Scraping', 'Automation', 'Database Design', 'Cloud Computing', 'API Development', 'Performance Optimization', 'Security Best Practices', 'System Architecture', 'DevOps', 'Testing & Debugging', 'Version Control', 'Agile Methodologies'];
   const chars = '!<>-_\\/[]{}—=+*^?#';
   const [text, setText] = useState(phrases[0]);
 
@@ -59,7 +59,7 @@ export const Hero: React.FC = () => {
       </div>
 
       <div>
-        <div className="flex justify-between items-end mb-8 min-[2000px]:mb-[4vh] relative z-20">
+        <div className="absolute top-24 md:static flex justify-between items-end mb-8 min-[2000px]:mb-[4vh] z-20 w-full md:w-auto px-4 md:px-0">
         <div className="flex flex-col gap-3 min-[2000px]:gap-[1.5vh]">
           <h2 className="text-xl md:text-2xl min-[2000px]:text-[2vw] font-light leading-tight max-w-sm min-[2000px]:max-w-[20vw] text-gray-400">
             <ScrambleText />
