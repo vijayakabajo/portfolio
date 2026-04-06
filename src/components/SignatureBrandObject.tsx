@@ -31,7 +31,7 @@ export const SignatureBrandObject = () => {
     if (hasCamera) {
       // Use actual head rotation (pitch, yaw) with a multiplier for high intensity.
       // Mediapipe outputs angles in radians. We apply a multiplier of 1.5 to make it intense.
-      targetRotation.current.x = -faceRotationRef.current.pitch * 2.5;
+      targetRotation.current.x = -faceRotationRef.current.pitch * 2;
       targetRotation.current.y = -faceRotationRef.current.yaw * 2;
     } else {
       // Fallback to mouse position
