@@ -31,7 +31,7 @@ export const SignatureBrandObject = () => {
       targetRotation.current.z = -faceRotationRef.current.roll * 1.35;
 
 
-      const zOffset = (faceRotationRef.current.z + 40) * 0.18;
+      const zOffset = (faceRotationRef.current.z + 40) * 0.2;   //1.8 stable
       targetZ.current = zOffset;
 
     } else {
