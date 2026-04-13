@@ -31,14 +31,14 @@ export const SignatureBrandObject = () => {
       targetRotation.current.z = -faceRotationRef.current.roll * 1.35;
 
 
-      const zOffset = (faceRotationRef.current.z + 40) * 0.2;   //1.8 stable
+      const zOffset = (faceRotationRef.current.z + 40) * 0.2;
       targetZ.current = zOffset;
 
     } else {
       targetRotation.current.x = (-state.pointer.y * Math.PI) / 4;
       targetRotation.current.y = (state.pointer.x * Math.PI) / 4;
 
-      targetRotation.current.z = (state.pointer.x * state.pointer.y * Math.PI) / 5;
+      targetRotation.current.z = (state.pointer.x * state.pointer.y * Math.PI) / 4;
 
       const distFromCenter = Math.sqrt(
         state.pointer.x * state.pointer.x +

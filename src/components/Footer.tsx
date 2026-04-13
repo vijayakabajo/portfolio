@@ -45,7 +45,7 @@ export const Footer: React.FC = () => {
                 </p>
               </div>
 
-              <div className="mt-6 lg:mt-auto">
+              {/* <div className="mt-6 lg:mt-auto">
                 <button
                   onClick={() => setShowPopup(true)}
                   className="group flex items-center gap-3 min-[2000px]:gap-[1vw] px-5 py-2.5 min-[2000px]:px-[2vw] min-[2000px]:py-[1vh] bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/10 dark:border-white/10 rounded-full min-[2000px]:rounded-[1.5vw] transition-all duration-300 text-sm min-[2000px]:text-[1vw] font-medium w-fit"
@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
                     🤪
                   </span>
                 </button>
-              </div>
+              </div> */}
             </div>
             {/* Contact FORM */}
             <ContactForm />
