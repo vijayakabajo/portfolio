@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
 import ReactPlayer from "react-player";
 import { FaRadio } from "react-icons/fa6";
-import { LuSpeaker } from "react-icons/lu";
 import { GiSpeaker } from "react-icons/gi";
 import {
   motion,
@@ -17,6 +16,10 @@ export const RadioPlayer: React.FC = () => {
   const playerRef = useRef<any>(null);
   const floatingRef = useRef<HTMLDivElement>(null);
 
+  // ✅ detect mobile properly (runtime safe)
+  const isMobile =
+    typeof window !== "undefined" && "ontouchstart" in window;
+
   // base repel motion
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -25,14 +28,20 @@ export const RadioPlayer: React.FC = () => {
   const springX = useSpring(x, springConfig);
   const springY = useSpring(y, springConfig);
 
-  // floating animation (independent)
+  // floating animation
   const time = useTime();
   const floatY = useTransform(time, (t) => Math.sin(t / 1000) * 8);
 
   // combine repel + float
-  const finalY = useTransform([springY, floatY], ([repel, float]) => repel + float);
+  const finalY = useTransform(
+    [springY, floatY],
+    ([repel, float]) => repel + float
+  );
 
+  // ✅ repel logic (desktop only)
   useEffect(() => {
+    if (isMobile) return; // 🚫 disable completely on mobile
+
     const handleMouseMove = (e: MouseEvent) => {
       if (!playing || !floatingRef.current) {
         x.set(0);
@@ -72,7 +81,15 @@ export const RadioPlayer: React.FC = () => {
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [playing, x, y]);
+  }, [playing, x, y, isMobile]);
+
+  // ✅ ensure no leftover offset on mobile
+  useEffect(() => {
+    if (isMobile) {
+      x.set(0);
+      y.set(0);
+    }
+  }, [isMobile, x, y]);
 
   const handlePlayPause = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -114,8 +131,8 @@ export const RadioPlayer: React.FC = () => {
             className="fixed right-6 z-[100]"
             style={{
               top: "50%",
-              x: springX,
-              y: finalY, // combined motion
+              x: isMobile ? 0 : springX, // ✅ no X motion on mobile
+              y: finalY,
             }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
           >
