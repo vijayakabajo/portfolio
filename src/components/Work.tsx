@@ -19,7 +19,7 @@ const projects = [
     video: "",
     description:
       "Developed backend APIs for an ONDC-based food delivery platform, building account/admin/product services, real-time notifications (Django Channels/WebSockets), and async email/SMS systems with caching, transactions, and Redis locks to prevent cache stampede.",
-    link: "https://www.neardelight.com/",
+    link: "https://neardelight.com/",
   },
   {
     title: "Artisans' Wizard",
