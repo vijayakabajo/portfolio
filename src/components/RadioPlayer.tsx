@@ -38,9 +38,8 @@ export const RadioPlayer: React.FC = () => {
     ([repel, float]) => (repel as number) + (float as number)
   );
 
-  // ✅ repel logic (desktop only)
   useEffect(() => {
-    if (isMobile) return; // 🚫 disable completely on mobile
+    if (isMobile) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!playing || !floatingRef.current) {
@@ -83,7 +82,6 @@ export const RadioPlayer: React.FC = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [playing, x, y, isMobile]);
 
-  // ✅ ensure no leftover offset on mobile
   useEffect(() => {
     if (isMobile) {
       x.set(0);
@@ -101,7 +99,7 @@ export const RadioPlayer: React.FC = () => {
       onClick={handlePlayPause}
       className={`relative z-10 flex items-center justify-center w-8 h-8 lg:w-10 lg:h-10 rounded-full transition-all duration-300 ${
         playing
-          ? "text-[#F05641] bg-white dark:bg-gray-800 shadow-lg border border-black/5 dark:border-white/10"
+          ? `text-[#F05641] bg-white dark:bg-gray-800 shadow-lg border border-black/5 dark:border-white/10 ${isMobile ? "animate-pulse" : ""}`
           : "text-gray-500 hover:text-black dark:hover:text-white"
       }`}
     >
@@ -115,7 +113,7 @@ export const RadioPlayer: React.FC = () => {
 
   return (
     <>
-      {!playing && (
+      {(!playing || isMobile) && (
         <div className="flex items-center justify-center w-10 h-10">
           <motion.div layoutId="radio-player">
             {mainIconContent}
@@ -123,7 +121,7 @@ export const RadioPlayer: React.FC = () => {
         </div>
       )}
 
-      {playing &&
+      {(playing && !isMobile) &&
         createPortal(
           <motion.div
             layoutId="radio-player"
