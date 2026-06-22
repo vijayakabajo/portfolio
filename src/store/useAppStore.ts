@@ -10,6 +10,6 @@ interface AppState {
 export const useAppStore = create<AppState>((set) => ({
   cameraPermissionStatus: 'idle',
   setCameraPermissionStatus: (status) => set({ cameraPermissionStatus: status }),
-  requestCamera: false,
+  requestCamera: true,
   setRequestCamera: (val) => set({ requestCamera: val })
 }));

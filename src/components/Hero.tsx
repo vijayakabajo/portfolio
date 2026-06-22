@@ -7,7 +7,6 @@ import { HiDownload } from "react-icons/hi";
 import { Magnetic } from './Magnetic';
 import { SceneWrapper } from './SceneWrapper';
 import { SignatureBrandObject } from './SignatureBrandObject';
-import { TutorialOverlay } from './TutorialOverlay';
 
 const ScrambleText = () => {
   const phrases = ['Full Stack Development', 'Backend Development', 'Frontend Development', 'Web Scraping', 'Automation', 'Database Design', 'API Development', 'Performance Optimization', 'Security Best Practices', 'System Architecture', 'DevOps', 'Testing & Debugging', 'Version Control'];
@@ -109,8 +108,6 @@ export const Hero: React.FC = () => {
           <div className="w-px h-10 md:h-12 min-[2000px]:h-[4vh] bg-black/20 dark:bg-white/20 transition-colors duration-500" />
         </motion.div>
       </div>
-
-      <TutorialOverlay />
 
       <div className="absolute bottom-8 md:bottom-12 min-[2000px]:bottom-[5vh] right-4 md:right-7 min-[2000px]:right-[4vw] z-20 pointer-events-auto">
         <Magnetic strength={0.2}>

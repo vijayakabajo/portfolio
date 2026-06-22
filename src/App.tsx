@@ -11,7 +11,6 @@ import { ThemeProvider } from './ThemeContext';
 import Bento from './components/About/Bento';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsAndConditions } from './components/TermsAndConditions';
-import { PermissionDialog } from './components/PermissionDialog';
 import { MobileDesktopWarning } from './components/MobileDesktopWarning';
 
 function ScrollToTop() {
@@ -51,7 +50,6 @@ export default function App() {
           <Routes>
             <Route path="/" element={
               <>
-                <PermissionDialog />
                 <Hero />
                 <Bento />
                 <Experience />
