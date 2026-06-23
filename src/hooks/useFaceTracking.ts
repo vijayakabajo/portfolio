@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { FaceLandmarker, FilesetResolver } from '@mediapipe/tasks-vision';
+import type { FaceLandmarker } from '@mediapipe/tasks-vision';
 import { useAppStore } from '../store/useAppStore';
 
 export const useFaceTracking = () => {
@@ -35,7 +35,8 @@ export const useFaceTracking = () => {
 
         stream = mediaStream;
 
-        // Then load models
+        // Then load models dynamically to prevent blocking initial bundle load
+        const { FaceLandmarker, FilesetResolver } = await import('@mediapipe/tasks-vision');
         const vision = await FilesetResolver.forVisionTasks(
           "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm"
         );

@@ -69,3 +69,5 @@ export const SignatureBrandObject = () => {
     </Float>
   );
 };
+
+useGLTF.preload('/models/eyes2.glb');

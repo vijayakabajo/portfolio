@@ -43,7 +43,7 @@ export const SceneWrapper: React.FC<SceneWrapperProps> = ({
           powerPreference: "high-performance"
         }}
         style={{ width: '100%', height: '100%' }}
-        eventSource={containerRef.current || undefined}
+        eventSource={typeof document !== 'undefined' ? document.getElementById('root')! : undefined}
         eventPrefix="client"
       >
         <Suspense fallback={null}>
