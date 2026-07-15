@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { motion, useSpring, useMotionValue } from "motion/react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useSpring, useMotionValue, useTransform, animate, useInView } from "motion/react";
 import { GoArrowUpRight } from "react-icons/go";
 
 const experiences = [
@@ -35,6 +35,34 @@ const experiences = [
 
 export const Experience: React.FC = () => {
   const [activeExperience, setActiveExperience] = useState<number | null>(null);
+  
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
+  const totalMonths = useMotionValue(0);
+  const displayExperience = useTransform(totalMonths, (latest) => {
+    // By using decimals, the text will update smoothly on every frame 
+    // rather than jumping by whole integers.
+    const years = (Math.max(0, latest) / 12).toFixed(2);
+    return `${years} YRS`;
+  });
+
+  useEffect(() => {
+    if (isInView) {
+      const start = new Date("2023-04-15");
+      const now = new Date();
+      const finalMonths = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+      
+      // Animate the motion value from 0 to finalMonths
+      const controls = animate(totalMonths, finalMonths, { 
+        duration: 1.5, 
+        ease: "easeOut",
+        delay: 0.5
+      });
+      
+      return () => controls.stop();
+    }
+  }, [isInView, totalMonths]);
 
   return (
     <section
@@ -42,7 +70,7 @@ export const Experience: React.FC = () => {
       className="py-12 md:py-20 min-[2000px]:py-[10vh] px-4 md:px-8 min-[2000px]:px-[5vw] relative bg-[#EBEAE9] dark:bg-[#141517]"
     >
       <div className="max-w-5xl min-[2000px]:max-w-[70vw] mx-auto">
-        <div className="flex flex-col justify-between items-start gap-6 min-[2000px]:gap-[3vw] mb-12 md:mb-16 min-[2000px]:mb-[8vh]">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 min-[2000px]:gap-[3vw] mb-12 md:mb-16 min-[2000px]:mb-[8vh]">
           <h2 className="text-[10vw] md:text-[6vw] lg:text-6xl min-[2000px]:text-[5vw] font-medium flex flex-wrap uppercase">
             {"Experience".split(" ").map((word, wordIndex) => (
               <span key={wordIndex} className="inline-flex mr-3 md:mr-4 last:mr-0">
@@ -64,6 +92,15 @@ export const Experience: React.FC = () => {
               </span>
             ))}
           </h2>
+          
+          <div className="flex flex-col items-start md:items-end" ref={ref}>
+            <span className="text-sm md:text-base min-[2000px]:text-[1vw] uppercase tracking-widest opacity-50 mb-1">Total Experience</span>
+            <motion.div 
+              className="text-3xl md:text-4xl min-[2000px]:text-[2.5vw] font-bold font-mono tabular-nums"
+            >
+              {displayExperience}
+            </motion.div>
+          </div>
         </div>
 
         <div className="border-t-[1.5px] border-black dark:border-white">

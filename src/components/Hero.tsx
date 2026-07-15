@@ -55,7 +55,7 @@ const ComingSoonCard = () => (
       <div className="relative flex flex-col items-center justify-center gap-1.5 px-6 py-3 md:px-8 md:py-4 rounded-full bg-[#EBEAE9] dark:bg-[#141517] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-indigo-500/10 dark:from-pink-500/20 dark:via-purple-500/20 dark:to-indigo-500/20"></div>
         <span className="relative text-sm md:text-base min-[2000px]:text-[1vw] font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 tracking-wide">
-          Articles & Projects
+          bajo.farm
         </span>
         <div className="relative flex items-center justify-center gap-2 text-[10px] md:text-xs min-[2000px]:text-[0.8vw] text-gray-600 dark:text-gray-300 uppercase tracking-wider font-medium">
           <span className="relative flex h-2 w-2 min-[2000px]:h-[0.5vw] min-[2000px]:w-[0.5vw]">
